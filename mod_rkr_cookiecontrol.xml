@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="2.5"
+	client="site"
+	method="upgrade">
+	<name>RKR Cookie Control</name>
+	<author>Rene Kreijveld</author>
+	<creationDate>July 2012</creationDate>
+	<copyright>Copyright (C) ReneKreijveld.nl All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later</license>
+	<authorEmail>email@renekreijveld.nl</authorEmail>
+	<authorUrl>www.renekreijveld.nl</authorUrl>
+	<version>0.1.0</version>
+	<description>Module to add cookie control.</description>
+	<files>
+		<filename module="mod_rkr_cookiecontrol">mod_rkr_cookiecontrol.php</filename>
+		<folder>assets</folder>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_rkr_cookiecontrol.xml</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="ccSoort"
+					type="radio"
+					default="1"
+					label="Soort Cookie Control"
+					description="Het soort Cookie Control: informerend of impliciet.">
+					<option value="impliciet">Impliciet</option>
+					<option value="informerend">Informerend</option>
+				</field>
+				<field
+					name="ccjQuery"
+					type="radio"
+					default="1"
+					label="Laad jQuery"
+					description="jQuery laden?">
+					<option value="1">Ja</option>
+					<option value="0">Nee</option>
+				</field>
+				<field
+					name="introInformerend"
+					type="textarea"
+					filter="raw"
+					cols="40"
+					rows="7"
+					default="&lt;p&gt;Deze website gebruikt cookies om instellingen te onthouden:&lt;br/&gt;&lt;li&gt;Voor het onthouden van uw logingegevens;&lt;/li&gt;&lt;li&gt;Voor het bijhouden van uw winkelwagen;&lt;/li&gt;&lt;li&gt;Voor het tijdelijk opslaan van uw keuzes.&lt;/li&gt;&lt;/p&gt;"
+					label="Introtekst informerend"
+					description="Geef hier de introtekst voor de informerende variant." 
+				/>
+				<field
+					name="vervolgInformerend"
+					type="textarea"
+					filter="raw"
+					cols="40"
+					rows="7"
+					default="&lt;p&gt;Een cookie is een klein bestandje dat met deze website wordt meegestuurd en door uw browser op uw computer wordt opgeslagen. Wij gebruiken cookies om uw instellingen, voorkeuren en tijdelijke gegevens te onthouden.&lt;/p&gt;&lt;p&gt;Deze cookies worden uitsluitend gebruikt voor de goede werking van de website. Daarom wordt ook niet specifiek om uw toestemming gevraagd. Deze popup verdwijnt na 6 seconden en komt daarna niet meer terug. De melding wordt maar één keer getoond, behalve als u op het cookie-instellingen icoon klikt onderin uw scherm.&lt;/p&gt;"
+					label="Vervolgtekst informerend"
+					description="Geef hier de vervolgtekst voor de informerende variant." 
+				/>
+				<field
+					name="introImpliciet"
+					type="textarea"
+					filter="raw"
+					cols="40"
+					rows="7"
+					default="&lt;p&gt;Deze website gebruikt cookies om instellingen te onthouden. Ook gebruiken wij Google Analytics.&lt;/p&gt;"
+					label="Introtekst impliciet"
+					description="Geef hier de introtekst voor de impliciete variant." 
+				/>
+				<field
+					name="vervolgImpliciet"
+					type="textarea"
+					filter="raw"
+					cols="40"
+					rows="7"
+					default="&lt;p&gt;Een cookie is een klein bestandje dat met deze website wordt meegestuurd en door uw browser op uw computer wordt opgeslagen. Wij gebruiken cookies om uw instellingen en voorkeuren te onthouden. Indien u cookies via deze website niet meer wil toestaan, verwijder dan de cookies voor deze website via uw browser. Uw eerdere keuze wordt dan ongedaan gemaakt.&lt;/p&gt;&lt;p&gt;Via onze website wordt ook een cookie geplaatst van Google, als deel van de Analytics-dienst. Wij gebruiken deze dienst om bij te houden hoe bezoekers de website gebruiken. Google kan deze informatie aan derden verschaffen indien Google hiertoe wettelijk wordt verplicht, of voor zover derden de informatie namens Google verwerken. Wij hebben hier geen invloed op. Wij hebben Google geen toestemming gegeven deze data te gebruiken voor andere Google-diensten.&lt;/p&gt;"
+					label="Vervolgtekst impliciet"
+					description="Geef hier de vervolgtekst voor de impliciete variant." 
+				/>
+				<field
+					name="ccPositie"
+					type="radio"
+					default="left"
+					label="Positie"
+					description="De positie waar de Cookie Control verschijnt.">
+					<option value="left">Links</option>
+					<option value="right">Rechts</option>
+				</field>
+				<field
+					name="ccVorm"
+					type="radio"
+					default="triangle"
+					label="Vorm"
+					description="De vorm van de Cookie Control.">
+					<option value="diamond">Ruit</option>
+					<option value="triangle">Driehoek</option>
+				</field>
+				<field
+					name="ccTheme"
+					type="radio"
+					default="light"
+					label="Thema"
+					description="Thema van de cookie control popup.">
+					<option value="light">Licht</option>
+					<option value="dark">Donker</option>
+				</field>
+				<field
+					name="ccHide"
+					type="text"
+					default="10000"
+					label="Sluiten na"
+					description="Aantal milliseconden waarna de popup automatisch wordt gesloten"
+				/>
+				<field
+					name="ccKoptekst"
+					type="text"
+					default="Cookie Instellingen"
+					label="Koptekst"
+					description="Koptekst die getoond wordt in de cookie control."
+				/>
+				<field
+					name="ccStatoe"
+					type="text"
+					default="Ik sta deze cookies toe"
+					label="Akkoordtekst"
+					description="Tekst voor het toestaan van cookies."
+				/>
+				<field
+					name="ccSluiten"
+					type="text"
+					default="Sluiten"
+					label="Tekst Sluiten"
+					description="Tekst voor het sluiten."
+				/>
+				<field
+					name="ccLeesmeer"
+					type="text"
+					default="lees meer"
+					label="Tekst Lees meer"
+					description="Tekst voor lees meer."
+				/>
+				<field
+					name="ccLeesminder"
+					type="text"
+					default="lees minder"
+					label="Tekst Lees minder"
+					description="Tekst voor lees minder."
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
