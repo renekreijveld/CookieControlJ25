@@ -28,10 +28,11 @@
 					name="ccSoort"
 					type="radio"
 					default="1"
-					label="Soort Cookie Control"
-					description="Het soort Cookie Control: informerend of impliciet.">
-					<option value="impliciet">Impliciet</option>
-					<option value="informerend">Informerend</option>
+					label="Cookie Control model"
+					description="Het soort Cookie Control: informerend, impliciet of expliciet. Bij &lt;strong&gt;informerend&lt;/strong&gt; wordt de bezoeker alleen geïnformeerd over cookies. Bij &lt;strong&gt;impliciet&lt;/strong&gt; wordt standaard de toestemming op akkoord gezet. De bezoeker kan dit akkoord intrekken. Bij &lt;strong&gt;expliciet&lt;/strong&gt; wordt standaard &lt;strong&gt;geen&lt;/strong&gt; akkoord verleend. De bezoeker kan expliciet zijn akkoord geven op het plaatsen van cookies.">
+					<option value="information_only">Informerend</option>
+					<option value="implicit">Impliciet</option>
+					<option value="explicit">Expliciet</option>
 				</field>
 				<field
 					name="ccjQuery"
@@ -69,7 +70,7 @@
 					cols="40"
 					rows="7"
 					default="&lt;p&gt;Deze website gebruikt cookies om instellingen te onthouden. Ook gebruiken wij Google Analytics.&lt;/p&gt;"
-					label="Introtekst impliciet"
+					label="Introtekst&lt;/br&gt;implciet/expliciet"
 					description="Geef hier de introtekst voor de impliciete variant." 
 				/>
 				<field
@@ -79,7 +80,7 @@
 					cols="40"
 					rows="7"
 					default="&lt;p&gt;Een cookie is een klein bestandje dat met deze website wordt meegestuurd en door uw browser op uw computer wordt opgeslagen. Wij gebruiken cookies om uw instellingen en voorkeuren te onthouden. Indien u cookies via deze website niet meer wil toestaan, verwijder dan de cookies voor deze website via uw browser. Uw eerdere keuze wordt dan ongedaan gemaakt.&lt;/p&gt;&lt;p&gt;Via onze website wordt ook een cookie geplaatst van Google, als deel van de Analytics-dienst. Wij gebruiken deze dienst om bij te houden hoe bezoekers de website gebruiken. Google kan deze informatie aan derden verschaffen indien Google hiertoe wettelijk wordt verplicht, of voor zover derden de informatie namens Google verwerken. Wij hebben hier geen invloed op. Wij hebben Google geen toestemming gegeven deze data te gebruiken voor andere Google-diensten.&lt;/p&gt;"
-					label="Vervolgtekst impliciet"
+					label="Vervolgtekst&lt;/br&gt;impliciet/expliciet"
 					description="Geef hier de vervolgtekst voor de impliciete variant." 
 				/>
 				<field
@@ -150,6 +151,32 @@
 					default="lees minder"
 					label="Tekst Lees minder"
 					description="Tekst voor lees minder."
+				/>
+				<field
+					name="ccToelnietmeer"
+					type="textarea"
+					filter="raw"
+					cols="40"
+					rows="4"
+					default="Niet meer vragen&lt;/br&gt;Bij selectie wordt een cookie gezet die deze popup niet meer toont als u het venster sluit. Er wordt geen persoonlijke informatie opgeslagen."
+					label="Tekst&lt;/br&gt;Niet meer vragen"
+					description="Tekst voor de toelichting onder Niet meer vragen." 
+				/>
+				<field
+					name="ccAnalyticsToevoegen"
+					type="radio"
+					default="0"
+					label="Google Analytics&lt;/br&gt;toevoegen"
+					description="Automatisch Google Analytcis tracking code toevoegen indien bezoeker akkoord geeft op cookies">
+					<option value="0">Nee</option>
+					<option value="1">Ja</option>
+				</field>
+				<field
+					name="ccTracking"
+					type="text"
+					default="UA-XXXXXXXX-Y"
+					label="Analytics&lt;/br&gt;Tracking code"
+					description="Tracking code voor Google Analytics"
 				/>
 			</fieldset>
 		</fields>

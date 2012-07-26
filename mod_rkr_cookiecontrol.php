@@ -30,11 +30,12 @@ require_once dirname(__FILE__).'/helper.php';
 $script	= modRKRCookieControlHelper::getScript($params);
 
 if($script) {
-	if ($params->get('ccSoort') == 'informerend') {
+	$soort = $params->get('ccSoort');
+	if ($soort == "informational_only") {
 		$intro = $params->get('introInformerend');
 		$vervolg = $params->get('vervolgInformerend');
 	}
-	if ($params->get('ccSoort') == 'impliciet') {
+	if ($soort != "informational_only") {
 		$intro = $params->get('introImpliciet');
 		$vervolg = $params->get('vervolgImpliciet');
 	}
@@ -42,5 +43,6 @@ if($script) {
 	$vorm = $params->get('ccVorm');
 	$thema = $params->get('ccTheme');
 	$hide = $params->get('ccHide');
+	$tracking = $params->get('ccTracking');
 	require JModuleHelper::getLayoutPath('mod_rkr_cookiecontrol', 'default');
 }

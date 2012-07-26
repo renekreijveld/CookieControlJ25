@@ -1,0 +1,13 @@
++ Added   ! Removed   ^ Changed   # Fixed
+
+26-Jul-2012 : v0.2.0
+^ Updated original Civik UK script to version 5.1
++ Added explicit model from Civik UK (required in Netherlands)
++ Added extra text parameter "Tekst Niet meer vragen" for explicit model
++ Added parameter use Google Analytics insert
++ Added parameter Google Analytics tracking code
+! Removed auto loading of jQuery through Civik UK javscript
+^ Removed data:image/png encoded images and replaced with real images
+
+21-Jul-2012 : v0.1.0
++ Initial version

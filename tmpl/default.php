@@ -30,30 +30,32 @@ if ($params->get('ccjQuery') == '1') {
 }
 
 ?>
+<script src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
 <script type="text/javascript"><?php echo $script;?></script>
 <script type="text/javascript">//<![CDATA[
-  cookieControl({
-      introText:'<?php echo $intro;?>',
-      fullText:'<?php echo $vervolg;?>',
-      position:'<?php echo $positie;?>',
-      shape:'<?php echo $vorm;?>', // triangle or diamond
-      theme:'<?php echo $thema;?>', // light or dark
-      startOpen:true,
-      autoHide:<?php echo $hide;?>,
-      subdomains:true,
-      protectedCookies: [], //list the cookies you do not want deleted ['analytics', 'twitter']
-      onAccept:function(){},
-      onReady:function(){},
-      onCookiesAllowed:function(){},
-      onCookiesNotAllowed:function(){},
-      countries:'' // Or supply a list ['United Kingdom', 'Greece']
-      });
-
-      function ccAddAnalytics() {
-        jQuery.getScript("http://www.google-analytics.com/ga.js", function() {
-          var GATracker = _gat._createTracker('UAXXXXXX');
-          GATracker._trackPageview();
-        });
-      }
-   //]]>
-</script>
+	cookieControl({
+		introText:'<?php echo $intro;?>',
+		fullText:'<?php echo $vervolg;?>',
+		position:'<?php echo $positie;?>',
+		shape:'<?php echo $vorm;?>', // triangle or diamond
+		theme:'<?php echo $thema;?>', // light or dark
+		startOpen:true,
+		autoHide:<?php echo $hide;?>,
+		subdomains:true,
+		protectedCookies: [], //list the cookies you do not want deleted ['analytics', 'twitter']
+		consentModel:'<?php echo $soort;?>',
+		onAccept:function(){<?php if ($params->get('ccAnalyticsToevoegen') == '1') {?>ccAddAnalytics()<?php } ?>},
+		onReady:function(){},
+		onCookiesAllowed:function(){<?php if ($params->get('ccAnalyticsToevoegen') == '1') {?>ccAddAnalytics()<?php } ?>},
+		onCookiesNotAllowed:function(){},
+		countries:'United Kingdom,Netherlands' // Or supply a list ['United Kingdom', 'Greece']
+	});
+<?php if ($params->get('ccAnalyticsToevoegen') == '1') {?>
+	function ccAddAnalytics() {
+		jQuery.getScript("http://www.google-analytics.com/ga.js", function() {
+		var GATracker = _gat._createTracker('<?php echo $tracking;?>');
+			GATracker._trackPageview();
+		});
+	}
+<?php } ?>
+//]]></script>
